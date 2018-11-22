@@ -7,7 +7,7 @@ from recipes.serializers import RecipeSerializer
 
 
 @api_view(['GET', 'POST'])
-def recipe_list(request):
+def recipe_list(request, format=None):
     """
     List all recipes or create a new one.
     """
@@ -25,7 +25,7 @@ def recipe_list(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def recipe_detail(request, pk):
+def recipe_detail(request, pk, format=None):
     """
     Retrieve, update or delete a recipe.
     """
