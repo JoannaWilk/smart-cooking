@@ -25,7 +25,7 @@ def recipe_list(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def snippet_detail(request, pk):
+def recipe_detail(request, pk):
     """
     Retrieve, update or delete a recipe.
     """
