@@ -4,6 +4,8 @@ from .models import Recipe
 
 
 class RecipeSerializer(serializers.ModelSerializer):
+    added_by = serializers.ReadOnlyField(source='added_by.username')
+
     class Meta:
         model = Recipe
         fields = ('id', 'name', 'meal', 'instruction', 'wege')
