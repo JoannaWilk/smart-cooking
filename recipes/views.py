@@ -1,6 +1,7 @@
 from rest_framework import generics, permissions
 
 from recipes.models import Recipe
+from recipes.permissions import IsOwnerOrReadOnly
 from recipes.serializers import RecipeSerializer
 
 
@@ -20,4 +21,5 @@ class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly)
