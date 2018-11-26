@@ -10,6 +10,9 @@ class RecipeList(generics.ListCreateAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
 
+    def perform_create(self, serializer):
+        serializer.save(added_by=self.request.user)
+
 
 class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
     """Retrieve, update or delete a recipe."""
